@@ -1,16 +1,47 @@
-<!-- Código de HTML que muestra la información provista por la ruta  -->
 
-<!--
-Extiende el archivo `views/layout.hbs` por lo tanto no es necesario incluir
-<head></head> o <body></body> en este archivo. Revise el archivo del layout
-para una mejor explicación
- -->
+<!-- muestra la imágen en miniatura del elemento -->
+<img src="{{files.0.file_urls.thumbnail}}" alt="">
 
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 
-<a href="/gatos">GATOS</a>
+<h1>Colección Estudio Fotográfico</h1>
+<!-- recorre todos los elementos -->
 
-<p>{{saludo}}</p>
+{{#each items}}
+  <!-- recorre la lista de textos -->
+  {{#each this.element_texts}}
+    <!-- si el texto es 'Title' -->
+      {{#ifeq this.element.name 'Número consecutivo'}}
+        <h4>Sobre #: {{this.text}}</h4>
+      {{/ifeq}}
+      {{#ifeq this.element.name 'URL'}}
+      <img src="{{this.text}}" alt="" height="268" width="400">
+      {{/ifeq}}
+      {{#ifeq this.element.name 'Fecha de registro'}}
+        <p>Fecha de registro: {{this.text}}</p>
+      {{/ifeq}}
+      {{#ifeq this.element.name 'Nombre en el sobre'}}
+      <p>Nombre en el sobre: {{this.text}}</p>
+      {{/ifeq}}
+      {{#ifeq this.element.name 'Información adicional en el sobre'}}
+        <p>Información adicional en el sobre: {{this.text}}</p>
+      {{/ifeq}}
+      {{#ifeq this.element.name 'Número de negativos'}}
+        <p>Número de negativos: {{this.text}}</p>
+      {{/ifeq}}
+      {{#ifeq this.element.name 'Espacio de color'}}
+        <p>Espacio de color: {{this.text}}</p>
+      {{/ifeq}}
+      {{#ifeq this.element.name 'Dimensiones del negativo'}}
+        <p>Dimensiones del negativo: {{this.text}}</p>
+      {{/ifeq}}
+      {{#ifeq this.element.name 'Número de personas retratadas'}}
+        <p>Número de personas retratadas: {{this.text}}</p>
+      {{/ifeq}}
+      {{#ifeq this.element.name 'Sexo'}}
+        <p>Sexo: {{this.text}}</p>
+      {{/ifeq}}
 
-<p>{{numero}}</p>
+  {{/each}}
+{{/each}}
+{{log items}}
+</paragraph>

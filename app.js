@@ -13,8 +13,6 @@ var hbs = require('hbs');
 // en el directorio `routes`
 var index = require('./routes/index');
 var users = require('./routes/users');
-var gatos = require('./routes/gato');
-var omeka = require('./routes/omeka');
 // **** PARA AGREGAR UNA NUEVA RUTA  ****
 // descomente y cambie los valores de la siguiente línea
 //var NOMBRE_RUTA = require('./routes/ARCHIVO_RUTA');
@@ -51,8 +49,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ejecuta el codigo de JS cuando es llamado desde una URL por el cliente
 app.use('/', index);
 app.use('/hola', users);
-app.use('/gatos', gatos);
-app.use('/omeka', omeka);
 // **** PARA AGREGAR UNA NUEVA RUTA  ****
 // descomente y cambie los valores de la siguiente línea
 // app.use('/DONDE?', NOMBRE_RUTA);
